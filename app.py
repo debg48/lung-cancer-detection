@@ -1,8 +1,10 @@
 import os
 from flask import Flask, request, jsonify
 from PIL import Image
+from prediction import pred
 import numpy as np
 import tensorflow as tf
+import shutil,sys
 from tensorflow.keras.preprocessing.image import img_to_array, load_img ,ImageDataGenerator
 
 app = Flask(__name__)
@@ -23,7 +25,7 @@ def predict():
         file.save(image_path)
 
         # Create a temporary directory
-        temp_dir = '/path/to/temp_dir'
+        temp_dir = 'image_folder/'
         os.makedirs(temp_dir, exist_ok=True)
 
         # Copy the image to the temporary directory
@@ -47,13 +49,13 @@ def predict():
                   )
         
         # Make predictions
-        predictions = pred(image_array)
+        predictions = pred(test_generator)
         # predicted_class = class_names[np.argmax(predictions[0])]
 
         # Delete the temporary image file
         os.remove(image_path)
-        
-        return jsonify({'prediction': predictions})
+
+        return jsonify({'prediction': str(predictions)})
     except Exception as e: 
         print(e) 
         return {
