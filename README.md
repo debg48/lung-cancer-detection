@@ -6,4 +6,11 @@
 ## API hitpoint :
  
 ``` http://127.0.0.1:5000/predict```
- 
+  
+## Method :
+
+```POST```
+
+## Body :
+
+form-data -> Value -> file (image to be uploaded)
