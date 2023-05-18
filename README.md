@@ -1,4 +1,6 @@
-# lung-cancer-detection
+# Lung Cancer Detection System
+
+## Class Annotations : 
 
 ```{"adenocarcinoma" : 0, "large.cell.carcinoma": 1, "normal": 2,"squamous.cell.carcinoma": 3}```
  
